@@ -1,0 +1,87 @@
+<!Doctype html>
+<html>
+<head><title>Registration form</title>
+<style>
+form{
+width:400px;
+height:auto;
+color:black;
+background-color:lavender;
+text-align:center;
+padding:30px;
+border-radius:40px;
+margin:40px;
+}
+input{
+border-radius:20px;
+height:30px;
+display:flex;
+}
+label{
+display:flex;
+}
+</style>
+
+</head>
+<body>
+<form action="login.html" method="POST" >
+<h1>Student Registration Form</h1>
+<label>First Name</label><br>
+<input type="text" placeholder="Firstname"></input><br>
+
+<label>Last Name</label><br>
+<input type="text" placeholder="Lastname"></input><br>
+
+<label>Phone number</label><br>
+<input type="phonenumber" placeholder="Phone number" maxlength="10"></input><br>
+
+<label>Email</label><br>
+<input type="email" placeholder="Email"></input><br>
+
+<label>UserName</label><br>
+<input type="text" placeholder="Username" title="Please enter the username" ></input><br>
+<label>Password</label><br>
+
+<input type="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters" 
+    required
+  ></input><br>
+  
+<label>Retype password</label><br>
+<input type="password" placeholder="password" ></input><br>
+
+<label>Date of birth</label><br>
+<input type="Date"></input><br>
+
+<label>Gender</label><br>
+<input type="radio" name="gender" value="Male">Male</input>
+<input type="radio" name="gender" value="Female">Female</input><br>
+
+<label>Age</label><br>
+<input type="number"></input><br>
+
+<label>Course</label><br>
+<select name ="course">
+<option>select</option>
+<option>Bca</option>
+<option>Mca</option>
+<option>Bba</option>
+<option>Mcom</option>
+<option>Btech</option>
+<option>Mtech</option>
+</select><br>
+
+<label>Address:</label><br>
+<textarea type="text" rows="3" cols="30"></textarea><br><br>
+
+<label>UploadFile:</label><br>
+<input type="file" placeholder="uploadfile"></input><br>
+<br>
+
+<button action="submit" >submit</button>
+<button type="reset" >Reset</button>
+</form>
+
+</body>
+
+</html>

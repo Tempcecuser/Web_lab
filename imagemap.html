@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Map</title>
+</head>
+<body>
+
+<h1>Image Map</h1>
+<p>Click on different areas of the image for the detailed description.</p>
+
+<img src="plant.jpg" width="600" height="800" usemap="#mmap" alt="Tomato plant">
+
+<map name="mmap">
+    <area shape="poly" coords="80,70,105,65,135,75,155,100,175,130,160,150,135,135,115,170,80,250,65,230,80,180,95,140,75,110"
+          href="#"
+          onclick="showinfo('leaves'); return false;"
+          alt="Leaves"
+          title="Leaves">
+    <area shape="rect"
+          coords="250,250,320,570"
+          href="#"
+          onclick="showinfo('stem'); return false;"
+          alt="Stem"
+          title="Stem">
+    <area shape="rect"
+          coords="150,570,430,700"
+          href="#"
+          onclick="showinfo('roots'); return false;"
+          alt="Roots"
+          title="Roots">
+    <area shape="circle"
+          coords="200,200,45"
+          href="#"
+          onclick="showinfo('tomato'); return false;"
+          alt="Tomato"
+          title="Tomato">
+
+</map>
+
+<h2 id="title">Selected Part</h2>
+
+<img id="partImage"
+     src="plant.jpg"
+     width="200"
+     height="200"
+     alt="part">
+
+<p id="info">
+    Click on a part of the plant to see its image and description.
+</p>
+
+<script>
+function showinfo(part) {
+
+    let title = "";
+    let description = "";
+    let image = "";
+
+    if (part === "tomato") {
+        title = "Tomato (Fruit)";
+        description = "The fruit contains seeds and helps the plant reproduce.";
+        image = "tomato.jpg";
+    }
+    else if (part === "leaves") {
+        title = "Leaves";
+        description = "Leaves prepare food for the plant through photosynthesis.";
+        image = "leaves.jpg";
+    }
+    else if (part === "stem") {
+        title = "Stem";
+        description = "The stem supports the plant and transports water and nutrients.";
+        image = "stem.jpg";
+    }
+    else if (part === "roots") {
+        title = "Roots";
+        description = "Roots anchor the plant and absorb water and minerals from the soil.";
+        image = "roots.jpeg";
+    }
+
+    document.getElementById("title").innerHTML = title;
+    document.getElementById("info").innerHTML = description;
+    document.getElementById("partImage").src = image;
+    document.getElementById("partImage").alt = title;
+}
+</script>
+
+</body>
+</html>
+
