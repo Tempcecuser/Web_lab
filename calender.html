@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>calender</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    #calendar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .month {
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        #background-color: lightblue;
+        padding: 8px;
+        margin: 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        table-layout: fixed;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px 4px;
+        text-align: center;
+    }
+
+    th {
+        background-color: lightgray;
+    }
+
+    td {
+        height: 25px;
+    }
+</style>
+</head>
+<body>
+<h1>Yearly Calendar</h1>
+<input type="number" id="year" placeholder="Enter Year">
+<button onclick="showCalendar()">Generate</button>
+<div id="calendar"></div>
+<script>
+    function showCalendar() {
+        let year = document.getElementById("year").value;
+        if (year == "") {
+            alert("Enter a year");
+            return;
+        }
+        let months = [
+            "January", "February", "March",
+            "April", "May", "June",
+            "July", "August", "September",
+            "October", "November", "December"
+        ];
+        let result = "";
+        for (let m = 0; m < 12; m++) {
+            result += "<div class='month'>";
+            result += "<h2>" + months[m] + "</h2>";
+            result += "<table>";
+            result += "<tr>";
+            result += "<th>Sun</th>";
+            result += "<th>Mon</th>";
+            result += "<th>Tue</th>";
+            result += "<th>Wed</th>";
+            result += "<th>Thu</th>";
+            result += "<th>Fri</th>";
+            result += "<th>Sat</th>";
+            result += "</tr>";
+            let days = new Date(year, m + 1, 0).getDate();
+            let start = new Date(year, m, 1).getDay();
+            let day = 1;
+            for (let row = 0; row < 6; row++) {
+              result += "<tr>";
+            for (let col = 0; col < 7; col++) {
+                if ((row === 0 && col < start) || day > days) {
+              result += "<td></td>";
+                 }
+               else {
+               result += "<td>" + day + "</td>";
+                  day++;
+                  }
+                }
+                result += "</tr>";
+                if (day > days) {
+                    break;
+                }
+            }
+            result += "</table>";
+            result += "</div>";
+        }
+        document.getElementById("calendar").innerHTML = result;
+    }
+</script>
+</body>
+</html>

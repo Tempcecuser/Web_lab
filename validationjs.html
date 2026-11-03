@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>form validation</title>
+<script>  
+function formvalidate(){
+let name=document.getElementById('name').value;
+let email=document.getElementById('email').value;
+let number=document.getElementById('number').value;
+if(name===""){
+alert("Enter your name");
+return false;
+}
+if(number===""){
+alert("Enter your number");
+return false;
+}
+if(email===""){
+alert("Enter your email");
+return false;
+}
+if(number.length !=10){
+alert("Invalid phone number");
+return false;
+}
+if(!email.includes('@')||!email.includes('.')){
+alert("Email is invalid");
+return false;
+}
+alert("Form submitted successfully");
+return true;
+}  
+</script>
+
+
+</head>
+<body >
+<h1>Form Validation</h1>
+<form onsubmit="return formvalidate()">
+Name:<input type="text" Placeholder="Enter your name" id="name"><br><br>
+Email:<input type="Email" Placeholder="Enter your Email" id="email"><br><br>
+Phonenumber:<input type="tel" Placeholder="Enter your phonenumber" id="number" ><br><br>
+<button type="submit">submit</button>
+</form>
+
+</body>
+</html>
